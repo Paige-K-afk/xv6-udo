@@ -24,6 +24,9 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int getch(void);
+// hello.c's sysproc.c function
+int greeting(void);
+int shutdown(int restart);
 
 // ulib.c
 int stat(const char*, struct stat*);

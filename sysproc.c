@@ -47,6 +47,28 @@ int sys_sbrk(void) {
     return addr;
 }
 
+int sys_shutdown(int restart){
+    if(restart == 0){
+        // shutdown code
+        outw(0x604, 0x2000);  
+    }
+    else if(restart == 1){
+        // restart code
+        unsigned char good = 0x02;
+        while (good & 0x02) {
+            good = inb(0x64);
+        }
+        outb(0x64, 0xFE);
+    }
+
+    return 0;
+}
+
+int sys_greeting(void){
+    cprintf("Hello again\n");
+    return 0;
+}
+
 int sys_sleep(void) {
     int n;
     uint ticks0;
