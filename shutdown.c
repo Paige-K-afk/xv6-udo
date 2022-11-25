@@ -3,13 +3,11 @@
 
 int main(int argc, char *argv[]){
     
-    //char str1 [1] = "-r";
-
     if (argc > 1)
     {
-   // if(argv[1] == str1){
-        shutdown(1);
-    //}
+        if(strcmp("-r", argv[1]) == 0){
+            shutdown(1);
+        }
         exit();
     }
     shutdown(0);
