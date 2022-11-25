@@ -47,7 +47,9 @@ int sys_sbrk(void) {
     return addr;
 }
 
-int sys_shutdown(int restart){
+int sys_shutdown(void){
+    int restart;        // sets up a variable to store the value extracted from the stack.
+    argint(0,&restart); // extracts the parameter from the stack and stores it in 'restart'
     if(restart == 0){
         // shutdown code
         outw(0x604, 0x2000);  
